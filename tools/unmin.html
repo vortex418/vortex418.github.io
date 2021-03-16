@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Tools - Unmin</title> 
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{
+            background: black;
+        }
+        #output{
+            font-family:courier;
+            font-size:10px;
+        }
+    </style>
+</head> 
+  
+<body>
+    <input type="file" name="inputfile" id="input"> 
+    <button id="submit">Unminify!</button>
+    <br>
+    <p id="output"></p> 
+</body>
+    <script>
+      var array;
+        var output
+        document.getElementById('input').addEventListener('change', function() { 
+            var reader = new FileReader(); 
+            reader.onload = function(){ 
+               array = reader.result.split(";");
+            }
+            reader.readAsText(this.files[0]);
+        }) 
+        document.getElementById("submit").addEventListener("click",function(){
+                for(var i=0;i<array.length;i++){
+                    output += array[i]+";<br>";
+              }
+            document.getElementById("output").innerHTML = output;
+            document.body.style.background = "black";
+        });
+    </script> 
+</html> 

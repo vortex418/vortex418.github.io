@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<button id="crash-button">Click to get free vbucks</button>
+		<div id="crash" style="display:none;background:black;color:white;font-size:14px;">
+			<pre>An unexpected error occured and your computer crashed. An automatic restart will be attempted soon. Please do not turn off your computer.</pre>
+		</div>
+	</body>
+	<script>
+		document.getElementById("crash-button").addEventListener("click",function(){
+			document.getElementById("crash").style.display = "block";
+			document.getElementById("crash-button").style.display = "none";
+			document.getElementById("crash").requestFullscreen();
+		});
+	</script>
+</html>
