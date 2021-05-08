@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EarthCraft - Home</title>
+		<link rel="stylesheet" href="/libraries/font-awesome-4.css">
+		<style>
+			body{font-family: sans-serif;color:#000}
+			pre{font-family: monospace}
+			#home{position:absolute;top:10%}
+			.darkmode{background-color: #191919;color:#85daf1}
+			.clickable:hover{cursor: pointer}
+			nav{position:fixed;left:0;top:0;width:100%;height:10%;background-color:#23eb55;z-index:1}
+			nav>ul{position:absolute;left:60%;top:-10%;width:100%;height:50%;list-style:none;display:inline-flex}
+			nav>ul>li{padding: 10px;font-size: 18px}
+			nav>ul>li>a:hover{color: #ccf}
+			a:link,a:visited{color: #fff}
+			.fa-sun-o{color:#fff}
+			.fa-sun-o:hover{color:#ccf}
+			.ga-label{border:1px solid #fff;border-radius:5px;margin:10px}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#intro">Getting Started</a></li>
+				<li><a href="#store">Store</a></li>
+				<li><a href="#guide">Guide</a></li>
+				<li><a href="#join">Join Us</a></li>
+				<li><i class="fa fa-sun-o clickable" aria-hidden="true"></i></li>
+			</ul>
+		</nav>
+		<div id="home">
+		<div id="intro"><h1>Getting Started</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+		<div id="store"><h1>Store</h1><pre>Placeholder Text</pre></div>
+		<div id="guide"><h1>Guide</h1><div id="ga">
+			<div id="ga-1-label" class="ga-label clickable"><h3>Guide Section 1 [Placeholder]</h3></div>
+			<div id="ga-1-content" style="display:none"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			<div id="ga-2-label" class="ga-label clickable"><h3>Guide Section 2 [Placeholder]</h3></div>
+			<div id="ga-2-content" style="display:none"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			<div id="ga-3-label" class="ga-label clickable"><h3>Guide Section 3 [Placeholder]</h3></div>
+			<div id="ga-3-content" style="display:none"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+			<div id="ga-4-label" class="ga-label clickable"><h3>Guide Section 4 [Placeholder]</h3></div>
+			<div id="ga-4-content" style="display:none"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+		</div></div>
+		<div id="join"><h1>Join Us</h1><pre>Placeholder Text</pre></div>
+		</div>
+	</body>
+	<script src="/libraries/jquery.js"></script>
+	<script>
+		Object.prototype.toString = function(){return JSON.stringify(this)};
+		var cookie = {};
+		$("document").ready(function(){
+			if(document.cookie != undefined && document.cookie != null){
+				var cookieList = document.cookie.split('; ')
+				for(var i = 0; i < cookieList.length; i++){
+					cookie[cookieList[i].split("=")[0]] = cookieList[i].split("=")[1];
+				}
+			}
+			if(cookie.darkmode == "true"){
+				$("body").addClass("darkmode")
+			}
+		});
+		$(".fa-sun-o").on("click",function(){
+			$("body").toggleClass("darkmode");
+			if($("body").hasClass("darkmode") == true){document.cookie = "darkmode=true"} 
+			else {document.cookie = "darkmode=false"}
+		});
+		$("#ga-1-label").on("click",function(){$("#ga-1-content").toggle()});
+		$("#ga-2-label").on("click",function(){$("#ga-2-content").toggle()});
+		$("#ga-3-label").on("click",function(){$("#ga-3-content").toggle()});
+		$("#ga-4-label").on("click",function(){$("#ga-4-content").toggle()});
+	</script>
+</html>
